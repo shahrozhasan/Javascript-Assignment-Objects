@@ -1,58 +1,48 @@
-// // 1.
-// const itemsArray = [
-//     { name: 'lays', price: 50, quantity: 3 },
-//     { name: 'cookie', price: 30, quantity: 9 },
-//     { name: 'shirt', price: 880, quantity: 1 },
-//     { name: 'marker', price: 100, quantity: 2 },
-// ];
+// 1.
+const itemsArray = [
+    { name: 'juice', price: 50, quantity: 3 },
+    { name: 'cookie', price: 30, quantity: 9 },
+    { name: 'shirt', price: 880, quantity: 1 },
+    { name: 'pen', price: 100, quantity: 2 },
+];
 
-// function calculate_Prices() {
-//     let item_Price = [];
-//     let Price = 0;
+let itemTotalPrice = [];
+let totalPrice = 0;
 
-//     for (const item of itemsArray) {
-//         const total = item.price * item.quantity;
-//         item_Price.push(total);
-//         Price += total;
-//     }
+for (const item of itemsArray) {
+    const total = item.price * item.quantity;
+    itemTotalPrice.push(total);
+    totalPrice += total;
+}
 
-//     console.log(item_Price);
-//     console.log(Price);
-// }
+console.log(itemTotalPrice);
+console.log(totalPrice);
 
-// calculate_Prices();
+// 2.
+const obj = {
+    name: 'shahroz',
+    email: 'shah@gmail.com',
+    password: 'pakistan',
+    age: 22,
+    gender: 'male',
+    city: 'Karachi',
+    country: 'Pakistan',
+};
 
-// // 2.
-// const user = {
-//     name: 'Shahroz',
-//     email: 'sherry123@gmail.com',
-//     password: 'shahrozqwerty',
-//     age: 21,
-//     gender: 'male',
-//     city: 'Karachi',
-//     country: 'Pakistan',
-// };
+console.log(Object.hasOwnProperty('age'));
+console.log(Object.hasOwnProperty('country'));
+console.log(Object.hasOwnProperty('firstName'));
+console.log(Object.hasOwnProperty('lastName'));
 
-// console.log('age' in user);
-// console.log('country' in user);
-// console.log('firstName' in user);
-// console.log('lastName' in user);
+// 3.
+function Student(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+}
 
-// // 3.
-// function Bike(make, model, year) {
-//     this.make = make;
-//     this.model = model;
-//     this.year = year;
-//     this.getInfo = function () {
-//         console.log(`${this.make} ${this.model} ${this.year}`);
-//     };
-// }
-
-// const bike1 = new Bike('suzuki', 'hayabusa', '2020');
-// const bike2 = new Bike('Honda', 'cg125', '2019');
-
-// bike1.getInfo();
-// bike2.getInfo();
+const s1 = new Student('Moiz', 'Ali', 24);
+const s2 = new Student('Yousuf', 'Ahmed', 22);
 
 // 4.
 function Person(name, gender, address, education, profession) {
@@ -62,8 +52,6 @@ function Person(name, gender, address, education, profession) {
     this.education = education;
     this.profession = profession;
 }
-
-const people = [];
 
 document.querySelector('form').addEventListener('submit', e => {
     e.preventDefault();
@@ -77,8 +65,4 @@ document.querySelector('form').addEventListener('submit', e => {
     const profession = e.target.profession.value;
 
     const person = new Person(name, gender, address, education, profession);
-
-    people.push(person);
-
-    console.log(people);
 });
